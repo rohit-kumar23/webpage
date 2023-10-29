@@ -1,3 +1,7 @@
+@viewport {
+  min-width: 980px;
+}
+
 html {
   background-color: #181a1b;
   min-height: 100vh;
