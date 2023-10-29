@@ -1,0 +1,126 @@
+html {
+  background-color: #181a1b;
+}
+
+body {
+  color: rgb(183, 177, 167);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0;
+  counter-reset: my-counter;
+}
+
+/* header */
+
+header {
+  border-bottom: 1px solid rgb(52, 56, 58);
+  padding: 0.25rem 1.5rem;
+}
+
+/* nav */
+
+nav > ul {
+  display: none;
+}
+
+/* main */
+
+main {
+  padding: 1rem 1.5rem;
+}
+
+/* sidebar */
+
+.sidebar > .avatar {
+  display: block;
+  width: 195px;
+  border: 1px solid rgb(52, 56, 58);
+  border-radius: 50%;
+}
+
+.sidebar > h2 {
+  display: none;
+}
+
+.sidebar > ul {
+  font-size: 0.92rem;
+  padding-left: 0;
+  list-style-type: none;
+  line-height: 1.9;
+}
+
+.sidebar figure {
+  display: contents;
+  margin: 0;
+}
+
+.sidebar figure a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.sidebar figure img {
+  filter: invert(1) grayscale(1) brightness(50%);
+  vertical-align: middle;
+  width: 1.4rem;
+}
+
+.sidebar figure img.icon-rev {
+  filter: grayscale(1) brightness(70%);
+}
+
+.sidebar figure figcaption {
+  display: inline;
+}
+
+/* content */
+
+.content > section.hidden {
+  display: inherit;
+}
+
+.content > section > h2 {
+  font-size: 1.375rem;
+}
+
+.content > section > h2::before {
+  content: counter(my-counter) ". ";
+  counter-increment: my-counter;
+  /* display: inline-block;
+  width: 1em; */
+}
+
+.content > section ul a,
+.content > section ol a {
+  text-decoration: none;
+}
+
+/* footer */
+
+footer {
+  color: rgb(172, 165, 154);
+  background-color: rgb(31, 34, 35);
+  border-top: 1px solid rgb(66, 71, 74);
+  padding: 1rem 1.5rem;
+  font-size: 0.9rem;
+}
+
+/* generic */
+
+.hidden {
+  display: none;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: rgb(108 103 95);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+}
+
+ul,
+ol {
+  padding-left: 1em;
+}
