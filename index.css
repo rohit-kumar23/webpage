@@ -50,8 +50,9 @@ nav>h1 {
   display: inline-block;
   font-weight: bold;
   font-size: 1.4rem;
-  width: 15rem;
   margin: 0;
+/*   width: 15rem; */
+  margin-right: 78.58px;
 }
 
 nav>h1:hover {
