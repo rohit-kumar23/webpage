@@ -1,4 +1,4 @@
-# Rohit’s Personal Website
+# Rohit Kumar
 
 ## Why a personal website?
 
