@@ -27,7 +27,7 @@ body {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   line-height: 1.7;
   margin: 0;
-  min-height: 100vh;
+  min-height: 100%;
 }
 
 /* header */
