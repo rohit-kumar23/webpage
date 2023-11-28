@@ -1,4 +1,4 @@
-# [Rohit Kumar](bit.ly/rohit23)
+# [Rohit Kumar](https://rohit-kumar23.github.io/webpage/)
 
 ## Why a personal website?
 
