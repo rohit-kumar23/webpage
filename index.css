@@ -173,7 +173,8 @@ main {
   text-decoration: none;
 }
 
-p {
+p,
+li {
   text-justify: inter-word;
   text-align: justify;
 }
