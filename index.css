@@ -14,9 +14,8 @@ html {
   line-height: 1.7;
   margin: 0;
   min-height: 100vh;
-  width: 1015px;
+  width: 995px;
   margin: 0 auto;
-
 }
 
 body {
@@ -103,7 +102,11 @@ nav>ul>li.active::after {
 main {
   flex-grow: 1;
   display: flex;
-  /* justify-content: center; */
+  flex-direction: column;
+}
+
+.main-layout {
+  display: flex;
 }
 
 /* sidebar */
@@ -171,6 +174,130 @@ main {
 .content>section ul a,
 .content>section ol a {
   text-decoration: none;
+}
+
+.github-contributions {
+  padding: 0 4rem 1.5rem;
+}
+
+.github-contributions>h3 {
+  margin-bottom: 0.2rem;
+}
+
+.github-contributions>p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: rgb(172, 165, 154);
+}
+
+.calendar {
+  overflow: hidden;
+  padding: 1rem;
+  border: 1px solid rgb(52, 56, 58);
+  border-radius: 8px;
+  background-color: rgb(24, 26, 27);
+}
+
+.calendar-summary,
+.calendar-legend {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.82rem;
+  color: rgb(172, 165, 154);
+}
+
+.calendar-body {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0.85rem 0 0.65rem;
+}
+
+.calendar-day-labels {
+  display: grid;
+  grid-template-rows: repeat(7, 12px);
+  gap: 3px;
+  padding-top: 18px;
+  font-size: 0.72rem;
+  color: rgb(172, 165, 154);
+  flex: 0 0 auto;
+}
+
+.calendar-grid-wrapper {
+  flex: 0 0 auto;
+  min-width: max-content;
+}
+
+.calendar-month-labels {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 12px;
+  gap: 3px;
+  height: 14px;
+  margin-bottom: 4px;
+  font-size: 0.72rem;
+  color: rgb(172, 165, 154);
+}
+
+.calendar-month-labels>span {
+  white-space: nowrap;
+}
+
+.calendar-heatmap {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(7, 12px);
+  grid-auto-columns: 12px;
+  gap: 3px;
+}
+
+.calendar-cell,
+.calendar-legend-box {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  background-color: #2d333b;
+}
+
+.calendar-cell-empty {
+  opacity: 0;
+}
+
+.calendar .level-0 {
+  background-color: #2d333b;
+}
+
+.calendar .level-1 {
+  background-color: #0e4429;
+}
+
+.calendar .level-2 {
+  background-color: #006d32;
+}
+
+.calendar .level-3 {
+  background-color: #26a641;
+}
+
+.calendar .level-4 {
+  background-color: #39d353;
+}
+
+.calendar-legend {
+  justify-content: space-between;
+}
+
+.calendar-legend>a {
+  font-size: 0.82rem;
+  color: rgb(172, 165, 154);
+  text-decoration: none;
+}
+
+.calendar-legend-scale {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 p,
