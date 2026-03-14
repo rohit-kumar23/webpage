@@ -1,16 +1,29 @@
+const getNavItems = () => document.querySelectorAll("nav > ul > li[data-target]");
+const getSections = () => document.querySelectorAll(".content > section");
+const getAboutContributions = () => document.getElementById("about-contributions");
+
 const handleToggle = (targetId) => {
-  document.querySelectorAll("nav > ul > li").forEach((li) => {
-    li.textContent === targetId
-      ? li.classList.add("active")
-      : li.classList.remove("active");
+  let hasMatch = false;
+
+  getNavItems().forEach((li) => {
+    const isActive = li.dataset.target === targetId;
+    li.classList.toggle("active", isActive);
   });
 
-  document.querySelectorAll("main > .content > section").forEach((section) => {
-    section.id === targetId
-      ? section.classList.remove("hidden")
-      : section.classList.add("hidden");
+  getSections().forEach((section) => {
+    const isActive = section.id === targetId;
+    section.classList.toggle("hidden", !isActive);
+    hasMatch = hasMatch || isActive;
   });
+
+  getAboutContributions()?.classList.toggle("hidden", targetId !== "About");
+
+  if (hasMatch && window.location.hash !== `#${targetId}`) {
+    window.location.hash = targetId;
+  }
 };
+
+window.handleToggle = handleToggle;
 
 /* clock */
 
@@ -236,9 +249,27 @@ const loadGitHubContributions = async () => {
 };
 
 document.addEventListener("DOMContentLoaded", async () => {
+  document.querySelector('nav > h1[data-target="About"]')?.addEventListener("click", () => {
+    handleToggle("About");
+  });
+
+  getNavItems().forEach((li) => {
+    li.addEventListener("click", () => {
+      handleToggle(li.dataset.target);
+    });
+  });
+
+  const targetId = window.location.hash.slice(1) || "About";
+  handleToggle(targetId);
+
   await loadData();
   updateTime();
   document.getElementById("clock-wrapper").classList.remove("hidden");
   setInterval(updateTime, 1000);
   await loadGitHubContributions();
+});
+
+window.addEventListener("hashchange", () => {
+  const targetId = window.location.hash.slice(1) || "About";
+  handleToggle(targetId);
 });

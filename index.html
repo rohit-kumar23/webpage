@@ -29,7 +29,7 @@
       console.log('Welcome!');
     });
   </script>
-  <script src="index.js"></script>
+  <script src="index.js?v=2"></script>
   <!-- Cloudflare Web Analytics -->
   <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
     data-cf-beacon='{"token": "4756c5ca98ed4a46aef2b341169b5aca"}'></script>
@@ -40,14 +40,14 @@
   <div class="webpage">
     <header>
       <nav>
-        <h1 onclick="handleToggle('About')">Rohit's Website</h1>
+        <h1 data-target="About" onclick="handleToggle('About')">Rohit's Website</h1>
         <ul>
-          <li class="active" onclick="handleToggle('About')">About</li>
-          <li onclick="handleToggle('Experience')">Experience</li>
-          <li onclick="handleToggle('Projects')">Projects</li>
-          <li onclick="handleToggle('Education')">Education</li>
-          <li onclick="handleToggle('Skills')">Skills</li>
-          <li onclick="handleToggle('Awards')">Awards</li>
+          <li class="active" data-target="About" onclick="handleToggle('About')">About</li>
+          <li data-target="Experience" onclick="handleToggle('Experience')">Experience</li>
+          <li data-target="Projects" onclick="handleToggle('Projects')">Projects</li>
+          <li data-target="Education" onclick="handleToggle('Education')">Education</li>
+          <li data-target="Skills" onclick="handleToggle('Skills')">Skills</li>
+          <li data-target="Awards" onclick="handleToggle('Awards')">Awards</li>
         </ul>
       </nav>
     </header>
@@ -190,7 +190,7 @@
         </div>
       </div>
 
-      <section class="github-contributions">
+      <section id="about-contributions" class="github-contributions">
         <h3>GitHub Contributions</h3>
         <p>A snapshot of my recent public GitHub activity.</p>
         <div class="calendar" aria-live="polite">Loading GitHub activity...</div>
