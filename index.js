@@ -2,24 +2,27 @@ const getNavItems = () => document.querySelectorAll("nav > ul > li[data-target]"
 const getSections = () => document.querySelectorAll(".content > section");
 const getAboutContributions = () => document.getElementById("about-contributions");
 
+const normalizeTargetId = (targetId) => (targetId || "About").toLowerCase();
+
 const handleToggle = (targetId) => {
+  const normalizedTargetId = normalizeTargetId(targetId);
   let hasMatch = false;
 
   getNavItems().forEach((li) => {
-    const isActive = li.dataset.target === targetId;
+    const isActive = normalizeTargetId(li.dataset.target) === normalizedTargetId;
     li.classList.toggle("active", isActive);
   });
 
   getSections().forEach((section) => {
-    const isActive = section.id === targetId;
+    const isActive = normalizeTargetId(section.id) === normalizedTargetId;
     section.classList.toggle("hidden", !isActive);
     hasMatch = hasMatch || isActive;
   });
 
-  getAboutContributions()?.classList.toggle("hidden", targetId !== "About");
+  getAboutContributions()?.classList.toggle("hidden", normalizedTargetId !== "about");
 
-  if (hasMatch && window.location.hash !== `#${targetId}`) {
-    window.location.hash = targetId;
+  if (hasMatch && window.location.hash !== `#${normalizedTargetId}`) {
+    window.location.hash = normalizedTargetId;
   }
 };
 
