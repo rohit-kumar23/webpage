@@ -2,7 +2,13 @@ const getNavItems = () => document.querySelectorAll("nav > ul > li[data-target]"
 const getSections = () => document.querySelectorAll(".content > section");
 const getAboutContributions = () => document.getElementById("about-contributions");
 
+const DEFAULT_TARGET_ID = "About";
 const normalizeTargetId = (targetId) => (targetId || "About").toLowerCase();
+const clearHash = () => {
+  if (window.location.hash) {
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+  }
+};
 
 const handleToggle = (targetId) => {
   const normalizedTargetId = normalizeTargetId(targetId);
@@ -21,8 +27,8 @@ const handleToggle = (targetId) => {
 
   getAboutContributions()?.classList.toggle("hidden", normalizedTargetId !== "about");
 
-  if (hasMatch && window.location.hash !== `#${normalizedTargetId}`) {
-    window.location.hash = normalizedTargetId;
+  if (hasMatch) {
+    clearHash();
   }
 };
 
@@ -248,7 +254,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   });
 
-  const targetId = window.location.hash.slice(1) || "About";
+  const targetId = window.location.hash.slice(1) || DEFAULT_TARGET_ID;
   handleToggle(targetId);
 
   updateTime();
@@ -258,6 +264,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 window.addEventListener("hashchange", () => {
-  const targetId = window.location.hash.slice(1) || "About";
+  const targetId = window.location.hash.slice(1) || DEFAULT_TARGET_ID;
   handleToggle(targetId);
 });
