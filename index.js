@@ -27,20 +27,6 @@ window.handleToggle = handleToggle;
 
 /* clock */
 
-let mapping = {};
-
-const loadData = async () => {
-  const request = await fetch("assets/dates.txt");
-  const response = await request.text();
-  response
-    .trimEnd()
-    .split("\n")
-    .forEach((line) => {
-      const [gregorian, nya] = line.split("\t");
-      mapping[gregorian] = nya;
-    });
-};
-
 const updateTime = () => {
   const date = new Date();
   const timeZone = "Asia/Kolkata";
@@ -262,7 +248,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   const targetId = window.location.hash.slice(1) || "About";
   handleToggle(targetId);
 
-  await loadData();
   updateTime();
   document.getElementById("clock-wrapper").classList.remove("hidden");
   setInterval(updateTime, 1000);
