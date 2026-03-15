@@ -33,3 +33,17 @@
 <p align="center">
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=rohit-kumar23&theme=dark&background=0D1116&hide_border=true&ring=39D353&fire=39D353&currStreakLabel=FDFFF5" width="60%">
 </p>
+
+<br>
+
+<h3 align="center">Contact</h3>
+
+<p align="center">
+  <a href="mailto:your.email@example.com">
+    <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white">
+  </a>
+  &nbsp;
+  <a href="https://www.linkedin.com/in/yourprofile">
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white">
+  </a>
+</p>
